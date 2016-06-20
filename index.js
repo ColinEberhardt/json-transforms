@@ -1,12 +1,9 @@
-const acorn = require('acorn');
+const babel = require('babel-core');
 const JSPath = require("JSPath");
-const escodegen = require('escodegen');
 
-const ast = acorn.parse(`
-  var foo = 2;
-  function gig() { var f = 2 + 3; };
-  var bar = 2 + 2;
-`);
+const code = `
+var f = 1 + 2;
+`;
 
 
 // wraps JSPath.apply, extracting the single matching value
@@ -39,9 +36,9 @@ const identity = (ast, runner) => {
 }
 
 const computeExpressionRule = pathRule(
-  '.{.type === "BinaryExpression" && .left.type === "Literal" && .right.type === "Literal"}',
+  '.{.type === "BinaryExpression" && .left.type === "NumericLiteral" && .right.type === "NumericLiteral"}',
   (ast, runner) => ({
-    type: 'Literal',
+    type: 'NumericLiteral',
     value: ast.left.value + ast.right.value
   })
 );
@@ -54,7 +51,7 @@ const combineVariableDeclarations = pathRule(
         kind: 'var',
         declarations: JSPath.apply('.body{.type === "VariableDeclaration"}.declarations', ast).map(runner)
       }]
-      .concat(ast.body.filter(d => d.type !== 'VariableDeclaration')).map()
+      .concat(ast.body.filter(d => d.type !== 'VariableDeclaration')).map(runner)
     })
 )
 
@@ -89,6 +86,8 @@ const rulesRunner = (ast) => {
   }
 }
 
+const ast = babel.transform(code).ast;
+
 let previous = ast;
 let next = rulesRunner(previous);
 while(JSON.stringify(next) !== JSON.stringify(previous)) {
@@ -97,6 +96,5 @@ while(JSON.stringify(next) !== JSON.stringify(previous)) {
 }
 
 const result = next;
-// console.log(JSON.stringify(result, null, 2));
-console.log(escodegen.generate(result));
-console.log(JSON.stringify(ast, null, 2));
+console.log(babel.transformFromAst(result).code)
+console.log(JSON.stringify(result, null, 2));
