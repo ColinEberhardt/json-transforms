@@ -1,0 +1,19 @@
+{
+  "name": "ast-xslt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "acorn": "^3.2.0",
+    "babel": "^6.5.2",
+    "babel-core": "^6.9.1",
+    "escodegen": "^1.8.0",
+    "jspath": "^0.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
