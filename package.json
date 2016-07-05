@@ -28,5 +28,6 @@
     "semantic-release": "semantic-release pre && npm run bundle && npm publish && semantic-release post"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "version": "1.0.0"
 }
