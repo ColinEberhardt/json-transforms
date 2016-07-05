@@ -1,4 +1,4 @@
-## JSON Transformer
+## JSON Transform
 
 A recursive, pattern-matching, approach to transforming JSON structures.
 
@@ -36,13 +36,13 @@ removed:
 Install via npm:
 
 ```
-npm install json-transformer --save
+npm install json-transforms --save
 ```
 
 The following code demonstrates how to perform the transformation described above:
 
 ```
-const jsont = require('./build/json-transformer');
+const jsont = require('json-transforms');
 
 const json = {...};
 
@@ -66,11 +66,11 @@ const transformed  = jsont.transform(json, rules);
 
 ### Browser
 
-The json-transformer is exposed as a global variable `jsont`. The project also depends on [JSPath](https://github.com/dfilatov/jspath), so both must be included in order to run the above example:
+The json-transforms is exposed as a global variable `jsont`. The project also depends on [JSPath](https://github.com/dfilatov/jspath), so both must be included in order to run the above example:
 
 ```
 <script src="https://npmcdn.com/jspath/lib/jspath.js"></script>
-<script src="https://npmcdn.com/json-transformer/build/json-transformer.js"></script>
+<script src="https://npmcdn.com/json-transforms/build/json-transforms.js"></script>
 ```
 
 With these scripts loaded, the above example will also run in the browser.
@@ -78,7 +78,7 @@ With these scripts loaded, the above example will also run in the browser.
 
 ### Modern JavaScript
 
-The examples on this documentation all use 'modern' JavaScript syntax (arrow functions, constants, etc ...), however, the npm module is transpiled to ES2015, so if you are in a browser environment that lacks ES2016 support, json-transformer will still work just fine:
+The examples on this documentation all use 'modern' JavaScript syntax (arrow functions, constants, etc ...), however, the npm module is transpiled to ES2015, so if you are in a browser environment that lacks ES2016 support, json-transforms will still work just fine:
 
 ```
 var rules = [

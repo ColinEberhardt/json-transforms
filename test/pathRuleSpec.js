@@ -1,4 +1,4 @@
-const transformer = require('./../build/json-transformer');
+const transformer = require('./../build/json-transforms');
 const pathRule = transformer.pathRule;
 
 describe('pathRule', () => {

@@ -5,7 +5,7 @@ export default {
   moduleName: 'jsont',
   format: 'umd',
   plugins: [ babel() ],
-  dest: 'build/json-transformer.js',
+  dest: 'build/json-transforms.js',
   globals: {
     jspath: 'JSPath'
   }

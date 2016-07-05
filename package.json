@@ -1,14 +1,14 @@
 {
-  "name": "json-transformer",
+  "name": "json-transforms",
   "description": "A recursive, pattern-matching, approach to transforming JSON structures.",
   "main": "index.js",
   "dependencies": {
     "jspath": "^0.3.3"
   },
-  "homepage": "https://github.com/ColinEberhardt/json-transformer",
+  "homepage": "https://github.com/ColinEberhardt/json-transforms",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ColinEberhardt/json-transformer"
+    "url": "https://github.com/ColinEberhardt/json-transforms"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^1.1.1",
@@ -29,5 +29,5 @@
   },
   "author": "",
   "license": "MIT",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

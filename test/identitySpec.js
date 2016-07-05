@@ -1,4 +1,4 @@
-const transformer = require('./../build/json-transformer');
+const transformer = require('./../build/json-transforms');
 const identity = transformer.identity;
 
 describe('Identity rule', () => {
