@@ -7,6 +7,6 @@ export default {
   plugins: [ babel() ],
   dest: 'build/json-transformer.js',
   globals: {
-    JSPath: 'JSPath'
+    jspath: 'JSPath'
   }
 };

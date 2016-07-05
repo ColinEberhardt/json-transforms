@@ -1,4 +1,4 @@
-import JSPath from 'JSPath';
+import JSPath from 'jspath';
 
 const pathRule = (path, ifMatch) =>
   (json, runner) => {
