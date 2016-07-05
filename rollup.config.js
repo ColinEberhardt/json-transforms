@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 
 export default {
   entry: 'index.js',
-  moduleName: 'json_transformer',
+  moduleName: 'jsont',
   format: 'umd',
   plugins: [ babel() ],
   dest: 'build/json-transformer.js',

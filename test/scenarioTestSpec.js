@@ -5,7 +5,7 @@ const transform = transformer.transform;
 
 describe('pathRule', () => {
 
-  it('allows the json to be transformed in non-tree order', () => {
+  it('should allow the json to be transformed in non-tree order', () => {
     // this scenario demonstrates how a path rule can cause the json to
     // be parsed in an order other than the original tree-like structure
     const json = {
@@ -50,6 +50,53 @@ describe('pathRule', () => {
       ],
       'Toyota': [
         { 'model': 'Yaris', 'year': 2008 }
+      ]
+    });
+  });
+
+  it('should work for the simple case given in the readme', () => {
+    const json = {
+      'automobiles': [
+        { 'maker': 'Nissan', 'model': 'Teana', 'year': 2011 },
+        { 'maker': 'Honda', 'model': 'Jazz', 'year': 2010 },
+        { 'maker': 'Honda', 'model': 'Civic', 'year': 2007 },
+        { 'maker': 'Toyota', 'model': 'Yaris', 'year': 2008 },
+        { 'maker': 'Honda', 'model': 'Accord', 'year': 2011 }
+      ]
+    };
+
+    const rules = [
+      pathRule(
+        '.automobiles{.maker === "Honda"}',
+        d => ({
+          honda: d.runner()
+        })
+      ),
+      pathRule(
+        '.{.maker}', d => ({
+          model: d.match.model,
+          year: d.match.year
+        })
+      ),
+      identity
+    ];
+
+    const transformed  = transform(json, rules);
+
+    expect(transformed).toEqual({
+      'honda': [
+        {
+          'model': 'Jazz',
+          'year': 2010
+        },
+        {
+          'model': 'Civic',
+          'year': 2007
+        },
+        {
+          'model': 'Accord',
+          'year': 2011
+        }
       ]
     });
   });
