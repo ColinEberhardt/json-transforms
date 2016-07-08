@@ -37,6 +37,27 @@ describe('pathRule', () => {
     }));
   });
 
+  it('supplies the context to the ifMatch function', () => {
+    const json = {
+      cat: [
+        { foo: 1 },
+        { foo: 2 }
+      ]
+    };
+
+    const spy = {
+      ifMatch: () => {}
+    };
+    spyOn(spy, 'ifMatch');
+
+    const rule = pathRule('..{.foo}', spy.ifMatch);
+    const result = rule(json, {});
+
+    expect(spy.ifMatch.calls.argsFor(0)[0]).toEqual(jasmine.objectContaining({
+      context: json
+    }));
+  });
+
   it('unwraps single element matches', () => {
     const json = {
       foo: 1

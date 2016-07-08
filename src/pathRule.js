@@ -19,6 +19,7 @@ const pathRule = (path, ifMatch) =>
       };
 
       return ifMatch({
+        context: json,
         match: unwrappedMatch,
         runner: guardedRunner
       });
