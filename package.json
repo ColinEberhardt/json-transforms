@@ -1,6 +1,6 @@
 {
   "name": "json-transforms",
-  "description": "A recursive, pattern-matching, approach to transforming JSON structures.",
+  "description": "Provides a recursive, pattern-matching approach to transforming JSON data.",
   "main": "index.js",
   "dependencies": {
     "jspath": "^0.3.3"
