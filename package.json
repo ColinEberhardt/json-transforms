@@ -1,7 +1,8 @@
 {
   "name": "json-transforms",
   "description": "Provides a recursive, pattern-matching approach to transforming JSON data.",
-  "main": "index.js",
+  "main": "build/json-transforms.js",
+  "jsnext:main": "index",
   "dependencies": {
     "jspath": "^0.3.3"
   },
