@@ -71,8 +71,8 @@ const transformed  = jsont.transform(json, rules);
 The **json-transforms** framework is exposed as a global variable `jsont`. The project also depends on [JSPath](https://github.com/dfilatov/jspath), so both must be included in order to run the above example:
 
 ```html
-<script src="https://npmcdn.com/jspath/lib/jspath.js"></script>
-<script src="https://npmcdn.com/json-transforms/build/json-transforms.js"></script>
+<script src="https://unpkg.com/jspath/lib/jspath.js"></script>
+<script src="https://unpkg.com/json-transforms/build/json-transforms.js"></script>
 ```
 
 With these scripts loaded, the above example will also run in the browser.
