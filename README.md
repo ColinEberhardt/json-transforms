@@ -4,6 +4,10 @@ Provides a recursive, pattern-matching approach to transforming JSON data. Trans
 
 This framework makes use of [JSPath](https://github.com/dfilatov/jspath), a domain-specific language for querying JSON objects. It is alse heavily inspired by [XSLT](https://en.wikipedia.org/wiki/XSLT), a language for transforming XML documents.
 
+For more information about this project, see the associated blog post:
+
+http://blog.scottlogic.com/2016/06/22/xslt-inspired-ast-transforms.html
+
 ## Usage
 
 The following examples show how to transform this JSON object:
