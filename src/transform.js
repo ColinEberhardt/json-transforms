@@ -8,11 +8,20 @@ const transform = (json, rules) => {
         return res;
       }
     }
+    // at this point, not yet returned.
+    // the runner function will return "undefined".
   };
 
   const adaptedRunner = ast => {
     if (Array.isArray(ast)) {
-      return ast.map(r => runner(r));
+      let result = ast.map(r => runner(r));
+      // a call to runner(r) may return "undefined".
+      // "undefined" should not appear in the result array.
+      // so let's filter it out.
+      result = result.filter((e) => {
+        return e !== undefined;
+      });
+      return result;
     } else {
       return runner(ast);
     }
