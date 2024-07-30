@@ -63,8 +63,7 @@ const rules = [
       model: d.match.model,
       year: d.match.year
     })
-  ),
-  jsont.identity
+  )
 ];
 
 const transformed  = jsont.transform(json, rules);
@@ -100,8 +99,7 @@ var rules = [
         year: d.match.year
       }
     }
-  ),
-  jsont.identity
+  )
 ];
 
 var transformed  = jsont.transform(json, rules);
@@ -148,8 +146,7 @@ const rules = [
     '.automobiles', d => ({
       'count': d.match.length
     })
-  ),
-  jsont.identity
+  )
 ];
 ```
 
@@ -222,8 +219,7 @@ const rules = [
         context: d.context,
         match: d.match
     })
-  ),
-  jsont.identity
+  )
 ];
 ```
 
@@ -258,8 +254,7 @@ const rules = [
     '.maker', d => ({
       text: `The ${d.context.model} was made in ${d.context.year}`
     })
-  ),
-  jsont.identity
+  )
 ];
 ```
 
@@ -300,8 +295,7 @@ const rules = [
     '.maker', d => ({
         text: `The ${d.context.model} was made in ${d.context.year}`
     })
-  ),
-  jsont.identity
+  )
 ];
 ```
 
