@@ -19,7 +19,7 @@ const transform = (json, rules) => {
       // "undefined" should not appear in the result array.
       // so let's filter it out.
       result = result.filter((e) => {
-        return e !== undefined;
+        return (e !== undefined && e !== null);
       });
       return result;
     } else {
